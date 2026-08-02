@@ -26,7 +26,7 @@ fi
 
 readelf_output=$(readelf -h "$file_name")
 
-magic_number=$(echo "$readelf_output" | grep "Magic:" | sed 's/^[ \t]*Magic:[ \t]*//')
+magic_number=$(echo "$readelf_output" | grep "Magic:" | sed 's/^[ \t]*Magic:[ \t]*//' | xargs)
 
 class=$(echo "$readelf_output" | grep "Class:" | awk '{print $2}')
 
